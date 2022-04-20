@@ -15,8 +15,9 @@ body{
 
 .project-wrapper{
   width: 80%;
-  /* border:2px solid orange; */
+  border:2px solid orange;
   margin: 0 auto;
+
 }
 
 .header{
@@ -29,3 +30,18 @@ body{
   color: black;
   font-weight: bold;
 }
+
+.img-container{
+  
+  display: flex;
+  justify-content: center;
+}
+
+.emojis{
+  font-size: 2.5em;
+}
+
+.btn-container{
+  border:2px solid orange;
+}
+
