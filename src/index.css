@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&family=Noto+Sans+Display&display=swap');
 
 
 *{
@@ -15,7 +15,7 @@ body{
 
 .project-wrapper{
   width: 80%;
-  border:2px solid orange;
+  /* border:2px solid orange; */
   margin: 0 auto;
 
 }
@@ -31,7 +31,7 @@ body{
   font-weight: bold;
 }
 
-.img-container{
+.emoji-container{
   
   display: flex;
   justify-content: center;
@@ -42,8 +42,42 @@ body{
 }
 
 .btn-container{
-  border:2px solid orange;
+  /* border:2px solid blue; */
+  display: flex;
+  justify-content: space-between;
+  padding-top: 3em;
+  width: 95%;
+  margin: 0 auto;
 }
 
-.btn 
+.btn {
+  font-family: 'Noto Sans Display', sans-serif;
+  font-size: 1.5rem;
+  background-color: rgb(8, 41, 114);
+  /* background: none; */
+  padding: 0.5rem 1.5rem;
+  border-radius: 10px;
+  border: none;
+  font-weight: bold;
+  color: white;
+}
+
+.img-container{
+  /* border:2px solid orange; */
+}
+
+.img{
+  padding-top:2em;
+  width: 100%;
+  margin: 0 auto;
+  /* border:2px solid blue; */
+  
+  max-width: 250px;;
+}
+
+.image{
+  width: 100%;
+  max-height: 250px;
+  border-radius: 5px;
+}
 

@@ -1,10 +1,31 @@
-import kitty from './images/kitty.png'
-import pug from './images/pug.png'
-import pusheen from './images/pusheen.png'
-import shiba from './images/shiba.gif'
+import {useState} from 'react'
 
 function App() {
-  
+  const [imgSrc, setImgSrc]=useState('')
+  const catURL='https://aws.random.cat/meow'
+  const dogURL = 'https://random.dog/woof.json'
+
+  const getCat= async() =>{
+    try{
+      const response = await fetch(catURL);
+      const catData= await response.json();
+      console.log(catData);
+      setImgSrc(catData)
+    }catch(error){
+      console.log(error)
+    }
+  }
+
+  const getDog=async()=>{
+    try{
+      const response = await fetch(dogURL)
+      const dogData = await response.json();
+      console.log(dogData)
+      setImgSrc(dogData)
+    }catch(error){
+      console.log(error);
+    }
+  }
   
   return (
     <div className="App">
@@ -13,19 +34,23 @@ function App() {
           <header className="header">Cute Animals Yay</header>
         </div>
         
-        <div className="img-container">
+        <div className="emoji-container">
           <div className='emojis'>&#128049;</div>
           <div className='emojis'>&#128054;</div>
         </div>
 
         <div className="btn-container">
-          <button className='btn'>WOOF</button>
-          <button className='btn'>MEOW</button>
+          <button className='btn' onClick={getDog}>WOOF</button>
+          <button className='btn' onClick={getCat}>MEOW</button>
         </div>
         
+        <div className="img-container">
+          <div className="img">
+            <img className='image' src={imgSrc.url} alt="''" />
+          </div>
+        </div>
         
       </div>
-      
     </div>
   );
 }
