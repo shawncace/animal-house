@@ -2,6 +2,7 @@ import {useState} from 'react'
 
 function App() {
   const [imgSrc, setImgSrc]=useState('')
+  
   const catURL='https://aws.random.cat/meow'
   const dogURL = 'https://random.dog/woof.json'
 
@@ -13,20 +14,27 @@ function App() {
       setImgSrc(catData)
     }catch(error){
       console.log(error)
+      setImgSrc('Error')
     }
   }
 
   const getDog=async()=>{
+    
     try{
       const response = await fetch(dogURL)
       const dogData = await response.json();
-      console.log(dogData);
+      
+      
       setImgSrc(dogData);
     }catch(error){
-      console.log(error);
+      
+      setImgSrc('Error')
     }
   }
   
+  const takeHome=()=>{
+
+  }
   return (
     <div className="App">
       <div className="project-wrapper">
@@ -49,6 +57,14 @@ function App() {
             <img className='image' src={imgSrc.url} alt="''" />
           </div>
         </div>
+
+        <div className="home-container">
+          <button className="btn">My Animals</button>
+        </div>
+        
+
+        
+        
         
       </div>
     </div>
