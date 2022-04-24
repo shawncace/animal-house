@@ -20,7 +20,7 @@ function App() {
     try{
       const response = await fetch(dogURL)
       const dogData = await response.json();
-      console.log(dogData)
+      console.log(dogData);
       setImgSrc(dogData);
     }catch(error){
       console.log(error);
