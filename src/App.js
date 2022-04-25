@@ -2,33 +2,37 @@ import {useState} from 'react'
 
 function App() {
   const [imgSrc, setImgSrc]=useState('')
+  const [dogSearch, setDogSearch]=useState(false)
+  const [catSearch, setCatSearch]=useState(false)
   
   const catURL='https://aws.random.cat/meow'
   const dogURL = 'https://random.dog/woof.json'
 
   const getCat= async() =>{
+    setCatSearch(true)
+    setDogSearch(false)
     try{
       const response = await fetch(catURL);
       const catData= await response.json();
       console.log(catData);
       setImgSrc(catData)
+      setCatSearch(true)
     }catch(error){
       console.log(error)
-      setImgSrc('Error')
+      
     }
   }
 
   const getDog=async()=>{
-    
+    setDogSearch(true)
+    setCatSearch(false)
     try{
       const response = await fetch(dogURL)
       const dogData = await response.json();
-      
-      
       setImgSrc(dogData);
+      setDogSearch(true);
     }catch(error){
-      
-      setImgSrc('Error')
+      console.log(error)
     }
   }
   
@@ -53,10 +57,36 @@ function App() {
         </div>
         
         <div className="img-container">
+          {dogSearch ? 
+            <div className="img">
+            <img className='image' src={imgSrc.url} alt="Try another WOOF!" />
+          </div>
+          : catSearch ?
+            <div className="img">
+            <img className='image' src={imgSrc.file} alt="Try another MEOW!" />
+            </div>
+            : 
+            <div className='stop-gap'>
+              <p>Choose WOOF or MEOW</p>
+            </div>}
+        </div>
+
+        {/* {dogSearch ? 
+        <div className="img-container">
           <div className="img">
             <img className='image' src={imgSrc.url} alt="''" />
           </div>
         </div>
+        : null }
+
+        {catSearch ? 
+        <div className="img-container">
+          <div className="img">
+            <img className='image' src={imgSrc.file} alt="''" />
+          </div>
+        </div>
+        : null } */}
+        
 
         <div className="home-container">
           <button className="btn">My Animals</button>
