@@ -1,49 +1,51 @@
 import {BrowserRouter, Routes, Route, Link} from 'react-router-dom'
 import {useState} from 'react'
 import AnimalHome from './Pages/AnimalHome'
+import tryagainpic from './images/tryagain.jpg'
 
 function App() {
   const [imgSrc, setImgSrc]=useState('')
-  const [dogSearch, setDogSearch]=useState(false)
-  const [catSearch, setCatSearch]=useState(false)
-  const [searchError, setSearchError]=useState(false)
+  const [searchStatus, setSearchStatus]=useState(false)
  
   const catURL='https://aws.random.cat/meow'
   const dogURL = 'https://random.dog/woof.json'
 
   const getCat= async() =>{
-    setSearchError(false)
-    setDogSearch(false)
+    setSearchStatus(true)
     try{
       const response = await fetch(catURL);
       const catData= await response.json();
-      setImgSrc(catData)
-      setCatSearch(true)
+      catSrcFunc(catData)
     }catch(error){
       console.log(error)
-      setCatSearch(false)
-      setSearchError(true)
+      setImgSrc(tryagainpic)
     }
   }
 
   const getDog=async()=>{
-    setSearchError(false)
-    setCatSearch(false)
+    setSearchStatus(true)
     try{
       const response = await fetch(dogURL)
       const dogData = await response.json();
-      setImgSrc(dogData);
-      setDogSearch(true);
+      dogSrcFunc(dogData)
     }catch(error){
       console.log(error)
-      setDogSearch(false)
-      setSearchError(true)
+      setImgSrc(tryagainpic)
     }
   }
-  
-  const takeHome=()=>{
 
+  const dogSrcFunc=(data)=>{
+    if(data.url.includes('mp4')){
+      setImgSrc(tryagainpic)
+    } else{
+      setImgSrc(data.url)}
   }
+
+  const catSrcFunc=(data)=>{
+    setImgSrc(data.file)
+  }
+  
+  
   return (
   
     
@@ -62,22 +64,18 @@ function App() {
           <button className='btn' onClick={getDog}>WOOF</button>
           <button className='btn' onClick={getCat}>MEOW</button>
         </div>
-        
+
         <div className="img-container">
-          {dogSearch ? 
+          {
+            searchStatus ?
             <div className="img">
-            <img className='image' src={imgSrc.url} alt="pic" />
-          </div>
-          : catSearch ?
-            <div className="img">
-            <img className='image' src={imgSrc.file} alt="pic" />
+            <img className='image' src={imgSrc} alt="pic" />
             </div>
-          : searchError ?
-            <p>error</p>
-          : 
+            :
             <div className='stop-gap'>
               <p>Choose WOOF or MEOW</p>
-            </div>}
+            </div>
+          }
         </div>
 
         <div className="home-container">
