@@ -66,11 +66,11 @@ function App() {
         <div className="img-container">
           {dogSearch ? 
             <div className="img">
-            <img className='image' src={imgSrc.url} alt="Try another WOOF!" />
+            <img className='image' src={imgSrc.url} alt="pic" />
           </div>
           : catSearch ?
             <div className="img">
-            <img className='image' src={imgSrc.file} alt="Try another MEOW!" />
+            <img className='image' src={imgSrc.file} alt="pic" />
             </div>
           : searchError ?
             <p>error</p>
