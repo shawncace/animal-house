@@ -144,3 +144,28 @@ body{
   margin-bottom: 2rem;
 }
 
+@media(min-width: 600px){
+  .btn-container{
+    /* border: 2px solid orange; */
+    width: 70%;
+  }
+
+  .img-container{
+    /* border:2px solid orange; */
+    width: 70%;
+    margin: 0 auto;
+  }
+}
+
+@media(min-width: 1000px){
+  .btn-container{
+    /* border: 2px solid orange; */
+    width: 40%;
+  }
+
+  .img-container{
+    /* border:2px solid orange; */
+    width: 30%;
+    margin: 0 auto;
+  }
+}

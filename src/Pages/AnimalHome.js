@@ -1,7 +1,10 @@
+import {useContext} from 'react'
+import {DataContext} from '../context/Context'
 import {useNavigate} from 'react-router-dom'
-import dummypic from '../images/dummypic.png'
 
 const AnimalHome = () => {
+  const {myAnimals}=useContext(DataContext)
+  
   let navigate=useNavigate()
 
   return (  
@@ -12,12 +15,9 @@ const AnimalHome = () => {
         </div>
         <header className='header'>My Animals</header>
         <div className="my-animals-img-container">
-          <img src={dummypic} alt="dummypic" className="my-animal-pic" />
-          <img src={dummypic} alt="dummypic" className="my-animal-pic" />
-          <img src={dummypic} alt="dummypic" className="my-animal-pic" />
-          <img src={dummypic} alt="dummypic" className="my-animal-pic" />
-          <img src={dummypic} alt="dummypic" className="my-animal-pic" />
-          <img src={dummypic} alt="dummypic" className="my-animal-pic" />
+          {myAnimals.map((item)=>(
+            <img src={item.src} alt='myanimalpic' className='my-animal-pic'/>
+          ))}
         </div>
       </div>
       
