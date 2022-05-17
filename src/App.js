@@ -10,9 +10,7 @@ return (
       <Route path='/animalhome' element={<AnimalHome />} />
     </Routes>
     
-    <div className="App">
-      
-    </div>
+    
   </Router>
       
 );

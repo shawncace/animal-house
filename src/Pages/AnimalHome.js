@@ -1,7 +1,18 @@
+import {useNavigate} from 'react-router-dom'
+
 const AnimalHome = () => {
+  let navigate=useNavigate()
+
   return (  
     <>
-      <div>Yay</div>
+      <div className="animal-home-wrapper">
+        <div className="go-back-container">
+          <button className="btn" onClick={()=>navigate('/')}>Pick More Animals</button>
+        </div>
+        <header className='header'>My Animals</header>
+        
+      </div>
+      
     </>
   );
 }

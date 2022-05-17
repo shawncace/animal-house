@@ -1,3 +1,4 @@
+import {Link} from 'react-router-dom'
 import {useState} from 'react'
 import tryagainpic from '../images/tryagain.jpg'
 
@@ -73,7 +74,7 @@ const Index = () => {
           </div>
 
           <div className="home-container">
-            <button className="btn">My Animals</button>
+            <button className="btn animal-home-btn"><Link to='/animalhome'>My Animals</Link></button>
             
           </div>
         
