@@ -5,6 +5,7 @@ import tryagainpic from '../images/tryagain.jpg'
 const Index = () => {
   const [imgSrc, setImgSrc]=useState('')
   const [searchStatus, setSearchStatus]=useState(false)
+  const [myAnimals, setMyAnimals]=useState([])
  
   const catURL='https://aws.random.cat/meow'
   const dogURL = 'https://random.dog/woof.json'
@@ -43,6 +44,12 @@ const Index = () => {
   const catSrcFunc=(data)=>{
     setImgSrc(data.file)
   }
+
+  const takeHome=()=>{
+    const img = imgSrc
+    alert(img)
+    setMyAnimals([...myAnimals, img])
+  }
   
   return (  
     <div className="project-wrapper">
@@ -53,8 +60,13 @@ const Index = () => {
           <div className="emoji-container">
             <div className='emojis'>&#128054;</div>
             <div className='emojis'>&#128049;</div>
+            
           </div>
-
+          
+          <div className="instructions">
+            <p>(Click the picture and take it home!)</p>
+          </div>
+          
           <div className="btn-container">
             <button className='btn' onClick={getDog}>WOOF</button>
             <button className='btn' onClick={getCat}>MEOW</button>
@@ -64,7 +76,7 @@ const Index = () => {
             {
               searchStatus ?
               <div className="img">
-              <img className='image' src={imgSrc} alt="pic" />
+                <img className='image' src={imgSrc} alt="pic" onClick={takeHome}/>
               </div>
               :
               <div className='stop-gap'>

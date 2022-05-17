@@ -41,11 +41,22 @@ body{
   font-size: 2.5em;
 }
 
+.instructions{
+  /* border:1px solid orange; */
+  padding-top: 1rem;
+}
+
+.instructions p{
+  /* border: 1px solid red; */
+  text-align: center;
+  font-family: 'Gloria Hallelujah', cursive;
+}
+
 .btn-container{
   /* border:2px solid blue; */
   display: flex;
   justify-content: space-between;
-  padding-top: 3em;
+  padding-top: 2em;
   width: 95%;
   margin: 0 auto;
 }
@@ -116,5 +127,20 @@ body{
   display: flex;
   justify-content: center;
   padding-top: 3rem;
+}
+
+.my-animals-img-container{
+  /* border:2px solid orange; */
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.my-animal-pic{
+  height: 100px;
+  width: 100px;
+  /* border: 1px solid red; */
+  margin-right: 2rem;
+  margin-bottom: 2rem;
 }
 
