@@ -48,7 +48,7 @@ const DataProvider = (props) => {
 
   const takeHome=()=>{
     const img = imgSrc
-    alert(img)
+    alert('Congrats! It\'s yours now!')
     setMyAnimals([...myAnimals, {src: img}])
   }
   
